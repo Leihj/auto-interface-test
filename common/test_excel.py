@@ -18,7 +18,7 @@ class Excel_Case():
         self.expected=None
         self.actual=None
         self.result=None
-        self.check_sql=None
+        self.sql=None
 
 
 class Do_Excel():
@@ -78,9 +78,9 @@ class Do_Excel():
             case.method=self.sheet.cell(row=row,column=4).value
             case.data=self.sheet.cell(row=row,column=5).value
             case.expected=self.sheet.cell(row=row,column=6).value
-            case.actual=self.sheet.cell(row=row,column=7).value
-            case.result=self.sheet.cell(row=row,column=8).value
-            case.check_sql=self.sheet.cell(row=row,column=9).value
+            # case.actual=self.sheet.cell(row=row,column=7).value
+            # case.result=self.sheet.cell(row=row,column=8).value
+            case.sql=self.sheet.cell(row=row,column=9).value
             list_data.append(case)
         return list_data
 

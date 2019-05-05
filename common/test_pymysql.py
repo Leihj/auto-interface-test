@@ -20,19 +20,21 @@ class CommDB():
         self.charset=config.get_str("db","charset")
         self.mysql=pymysql.connect(host=self.host,user=self.user,password=self.password,db=self.db,port=self.port,charset=self.charset)
 
-        self.cursor=self.mysql.cursor()  # 使用cursor()方法获取操作游标
-        # self.cursor=self.mysql.cursor(pymysql.cursors.DictCursor)   #创建游标，以字典格式返回
+        # self.cursor=self.mysql.cursor()  # 使用cursor()方法获取操作游标
+        self.cursor=self.mysql.cursor(pymysql.cursors.DictCursor)   #创建游标，以字典格式返回
 
 
     #获取查询结果集里面最近的一条数据返回
     def fetch_one(self,sql):
         self.cursor.execute(sql)
+        self.mysql.commit()
         return self.cursor.fetchone()
 
 
     #获取全部结果集返回
     def fetch_all(self,sql):
         self.cursor.execute(sql)
+        self.mysql.commit()
         return self.cursor.fetchall()
 
     def commit(self):

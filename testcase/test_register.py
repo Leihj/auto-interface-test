@@ -31,7 +31,7 @@ class RegisterTest(unittest.TestCase):
 
         if case.data.find("normal_user") >-1:
             # sql="SELECT max(mobilephone) FROM future.member WHERE mobilephone LIKE '1860735%'"
-            sql=case.check_sql  #执行excel里面的sql语句
+            sql=case.sql  #执行excel里面的sql语句
             # sql="select max(mobilephone) from future.member"
             max_phone=self.commdb.fetch_one(sql)[0]
             # print("mysql:",max_phone)#查询最大手机号码，返回的是元组，根据索引获取第一条数据
@@ -53,7 +53,7 @@ class RegisterTest(unittest.TestCase):
             # 判断注册成功之后，查询数据库，取到mobilephone
             if resp.json()['msg']=="注册成功":
                 # sql = "select max(mobilephone) from future.member where mobilephone like '1860735%'"
-                sql = case.check_sql    #执行excel里面的sql语句
+                sql = case.sql    #执行excel里面的sql语句
                 log.debug("执行的sql语句是：{}".format(sql))
                 after_max_phone = self.commdb.fetch_one(sql)[0]
                 # print("mysql:", after_max_phone)  # 查询最大手机号码，返回的是元组，根据索引获取第一条数据
