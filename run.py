@@ -5,10 +5,7 @@
 # @Emali    : huijuan_lei@163.com
 import sys
 sys.path.append('/')
-
-
-
-
+print("sys路径",sys.path)
 import HTMLTestRunnerNew
 import time
 import unittest
