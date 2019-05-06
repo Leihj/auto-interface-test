@@ -34,7 +34,8 @@ class RechargeTest(unittest.TestCase):
     def test_recharge(self,case):
         if case.sql is not None:
             sql = eval(case.sql)['sql1']  # 取到excel的check_sql列的第一条sql语句
-            amount = self.db.fetch_one(sql)  # 执行sql语句
+            amount = self.db.fetch_one(sql)  # 执行sql语
+            # 句
             print("金额",amount['LeaveAmount'])
             before_amount = amount['LeaveAmount']  # 充值之前的金额
 
