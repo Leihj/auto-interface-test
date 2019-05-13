@@ -63,4 +63,4 @@ if __name__ == '__main__':
     log.info("info信息")
     log.warning("warning信息")
     log.error("error信息")
-    log.critical("critical信息")
+    # log.critical("critical信息")

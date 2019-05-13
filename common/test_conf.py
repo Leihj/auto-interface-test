@@ -51,3 +51,4 @@ config = Read_Conf()  # 将Read_Conf这个类实例化
 if __name__ == '__main__':
 
    print(config.get_str("api","url"))
+   print(config.get_sections())
